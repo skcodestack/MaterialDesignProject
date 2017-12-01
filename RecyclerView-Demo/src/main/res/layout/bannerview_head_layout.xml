@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <github.skcodestack.banner.BannerView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/banner_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:withProportion="8"
+        app:heightProportion="4"
+        app:dotSize="8dp"
+        app:dotDistance="3dp"
+        app:dotGravity="right"
+        app:bottomColor="@color/banner_bottom_bar_bg_day"
+        app:dotIndicatorFocus="@color/dot_select_color"
+        app:dotIndicatorNormal="@color/dot_unselect_color">
+
+    </github.skcodestack.banner.BannerView>
+
+</FrameLayout>

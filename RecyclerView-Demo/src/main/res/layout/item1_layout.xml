@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<github.com.materialdesignproject.view.SquareFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/miss_default_error"
+        />
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text=""
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="#ff0000"
+        android:background="#cccccccc"/>
+
+
+</github.com.materialdesignproject.view.SquareFrameLayout>
