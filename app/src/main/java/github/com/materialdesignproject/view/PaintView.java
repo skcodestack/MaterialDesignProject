@@ -224,6 +224,6 @@ public class PaintView extends View {
         //获取下一个segment片段
         pathMeasure.getSegment(0,length/2,pathDst,true);
 
-        View
+//        View
     }
 }

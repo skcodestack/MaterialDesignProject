@@ -1,0 +1,17 @@
+<github.com.materialdesignproject.custom.qq5.view.DragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:id="@+id/dl_mian">
+    <FrameLayout
+        android:id="@+id/leftcontent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+    <github.com.materialdesignproject.custom.qq5.view.MyFrameLayout
+        android:id="@+id/maincontent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"  >
+    </github.com.materialdesignproject.custom.qq5.view.MyFrameLayout>
+</github.com.materialdesignproject.custom.qq5.view.DragLayout>

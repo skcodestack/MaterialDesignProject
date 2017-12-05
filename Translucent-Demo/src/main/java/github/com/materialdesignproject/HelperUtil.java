@@ -1,7 +1,12 @@
 package github.com.materialdesignproject;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.Display;
+import android.view.WindowManager;
 
 /**
  * Email  1562363326@qq.com
@@ -55,6 +60,25 @@ public class HelperUtil {
         }
 
         return result;
+    }
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    public static boolean hasNavigationBarShow(WindowManager wm){
+        Display display = wm.getDefaultDisplay();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        //获取整个屏幕的高度
+        display.getRealMetrics(outMetrics);
+        int heightPixels = outMetrics.heightPixels;
+        int widthPixels = outMetrics.widthPixels;
+        //获取内容展示部分的高度
+        outMetrics = new DisplayMetrics();
+        display.getMetrics(outMetrics);
+        int heightPixels2 = outMetrics.heightPixels;
+        int widthPixels2 = outMetrics.widthPixels;
+        int w = widthPixels-widthPixels2;
+        int h = heightPixels-heightPixels2;
+        System.out.println("~~~~~~~~~~~~~~~~h:"+h);
+        return  w>0||h>0;//竖屏和横屏两种情况。
     }
 
 }

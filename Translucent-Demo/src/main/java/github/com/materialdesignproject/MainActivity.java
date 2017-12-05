@@ -4,6 +4,8 @@ import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -14,25 +16,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-        //状态栏透明
-        // 全屏 WindowManager.LayoutParams.FLAG_FULLSCREEN
-//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        TranslucentCompat.initFrontSetContentView(this);
         setContentView(R.layout.activity_main);
 
-        //android >= 5.0
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(Color.RED);
-            getWindow().setNavigationBarColor(Color.RED);
-        }else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT ) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        }
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
+        TranslucentCompat.setStatusBarColor(this,toolbar,Color.RED);
 
-
-
-
+        TranslucentCompat.setNavigationBarColor(this,Color.RED);
     }
 
 

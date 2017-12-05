@@ -17,6 +17,7 @@ import java.util.List;
 
 import github.com.materialdesignproject.DataUtil;
 import github.com.materialdesignproject.R;
+import github.com.materialdesignproject.util.PaletteUtil;
 import github.skcodestack.recyclerview.adapter.CommonAdapter;
 import github.skcodestack.recyclerview.base.ViewHolder;
 import github.skcodestack.recyclerview.refresh.container.AliFooter;
@@ -61,11 +62,15 @@ public class PrimaryFragment extends Fragment  {
         refreshLoadMoreWrapper = (RefreshLoadMoreWrapper) rootView.findViewById(R.id.refreshWarapper);
         recyclerView.setLayoutManager(new GridLayoutManager(recyclerView.getContext(), 2, GridLayoutManager.VERTICAL, false));
 
+
+
         commonAdapter = new CommonAdapter<String>(recyclerView.getContext(), R.layout.item1_layout, list) {
             @Override
             protected void convert(ViewHolder holder, String o, int position) {
                 holder.setText(R.id.desc, o);
                 holder.setImageByUrl(R.id.image, DataUtil.getImageUrl());
+
+
             }
 
         };

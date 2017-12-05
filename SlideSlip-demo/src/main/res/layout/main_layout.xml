@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout 
+         android:layout_width="match_parent"
+   	     android:layout_height="match_parent" 
+   	     android:orientation="vertical"
+   	     android:background="#fff">
+        <RelativeLayout 
+            android:layout_width="match_parent"
+   	     	android:layout_height="52dp" 
+   	     	android:background="#18B6EF"
+   	     	android:layout_gravity="center">
+            <ImageView 
+                android:id="@+id/iv_head"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/head"
+                android:layout_marginLeft="15dp"
+                android:layout_centerVertical="true"/>
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Header"
+                android:layout_centerInParent="true"
+                android:textColor="#fff"
+                android:textSize="16dp"/>
+        </RelativeLayout>
+        <ListView 
+            android:id="@+id/lv_main"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent">
+            
+        </ListView>
+    </LinearLayout>
+
+</FrameLayout>

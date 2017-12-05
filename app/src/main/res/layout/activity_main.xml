@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -8,17 +8,45 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="github.com.materialdesignproject.MainActivity">
 
     <android.support.v7.widget.AppCompatButton
-        android:onClick="recycleractivity"
+        android:onClick="applayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="recycler   activity"/>
+        android:text="applayout   activity"/>
 
     <android.support.v7.widget.AppCompatButton
         android:onClick="floating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="floating   activity"/>
-</RelativeLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:onClick="search_toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="search   activity"/>
+    <android.support.v7.widget.AppCompatButton
+        android:onClick="translucent_toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="translucent toolbar   activity"/>
+    <android.support.v7.widget.AppCompatButton
+        android:onClick="palette_click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="paletter   activity"/>
+    <android.support.v7.widget.AppCompatButton
+        android:onClick="tablayout_click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tablayout   activity"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:onClick="tablayout_footer_click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="tablayout footer  activity"/>
+</LinearLayout>

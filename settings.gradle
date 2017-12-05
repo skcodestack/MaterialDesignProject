@@ -1,1 +1,1 @@
-include ':app', ':RecyclerView-Demo', ':Translucent-Demo'
+include ':app', ':RecyclerView-Demo', ':Translucent-Demo', ':SlideSlip-demo'

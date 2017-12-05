@@ -15,11 +15,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RecyclerActivity" />
         <activity
             android:name=".FloatingActivity"
             android:label="@string/title_activity_floating"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".AppLayoutActivity" />
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".TranslucentToolBarActivity" />
+        <activity android:name=".PaletteActivity" />
+        <activity android:name=".TabLayoutActivity" />
+        <activity android:name=".TabLayoutFooterActivity"></activity>
     </application>
 
 </manifest>

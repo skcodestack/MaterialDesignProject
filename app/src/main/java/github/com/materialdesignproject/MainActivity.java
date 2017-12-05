@@ -26,30 +26,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.context = this;
-        LayoutInflater.from(this).inflate()
-
-        //添加View   android.view.LayoutInflater
-//        final View view = createViewFromTag(parent, name, context, attrs);
-//        final ViewGroup viewGroup = (ViewGroup) parent;
-//        final ViewGroup.LayoutParams params = viewGroup.generateLayoutParams(attrs);
-//        rInflateChildren(parser, view, attrs, true);
-//        viewGroup.addView(view, params);
-    }
-
-    public void recycleractivity(View view){
-        Intent intent = new Intent(context, RecyclerActivity.class);
-        startActivity(intent);
-//        int scaledTouchSlop = ViewConfiguration.get(this).getScaledTouchSlop();
-//        float density = getResources().getDisplayMetrics().density;
-
-
 
     }
+
+
+    public void applayout(View view){
+        startActivity(new Intent(context,AppLayoutActivity.class));
+    }
+
 
     public void floating(View view){
         Intent intent = new Intent(context, FloatingActivity.class);
         startActivity(intent);
     }
 
+    public void search_toolbar(View view){
+        startActivity(new Intent(context,SearchActivity.class));
+    }
 
+    public void translucent_toolbar(View view){
+        startActivity(new Intent(context,TranslucentToolBarActivity.class));
+    }
+
+    public void palette_click(View view){
+        startActivity(new Intent(context,PaletteActivity.class));
+    }
+
+    public void tablayout_click(View view){
+        startActivity(new Intent(context,TabLayoutActivity.class));
+    }
+
+    public void tablayout_footer_click(View view){
+        startActivity(new Intent(context,TabLayoutFooterActivity.class));
+    }
 }
