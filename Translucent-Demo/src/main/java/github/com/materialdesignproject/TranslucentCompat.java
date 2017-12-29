@@ -22,11 +22,21 @@ public class TranslucentCompat {
      * 初始化，在setcontentview前调用--兼容4.4-5.0
      * @param activity
      */
-    public static void initFrontSetContentView(Activity activity){
-        //判断版本,如果[4.4,5.0)就设置状态栏和导航栏为透明
+    public static void initStatusBar(Activity activity){
+        //判断版本,如果[4.4,5.0)就设置状态栏
         if(android.os.Build.VERSION.SDK_INT>=android.os.Build.VERSION_CODES.KITKAT
                 &&android.os.Build.VERSION.SDK_INT<android.os.Build.VERSION_CODES.LOLLIPOP){
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
+    }
+    /**
+     * 初始化，在setcontentview前调用--兼容4.4-5.0
+     * @param activity
+     */
+    public static void initNavigationBar(Activity activity){
+        //判断版本,如果[4.4,5.0)就设置导航栏为透明
+        if(android.os.Build.VERSION.SDK_INT>=android.os.Build.VERSION_CODES.KITKAT
+                &&android.os.Build.VERSION.SDK_INT<android.os.Build.VERSION_CODES.LOLLIPOP){
             //设置虚拟导航栏为透明
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
@@ -60,7 +70,6 @@ public class TranslucentCompat {
                 Toolbar toolbar = (Toolbar) view;
                 //1.先设置toolbar的高度
                 int statusBarHeight =HelperUtil.getStatusBarHeight(activity);
-
                 ViewGroup.LayoutParams params = toolbar.getLayoutParams();
                 params.height += statusBarHeight ;
                 toolbar.setLayoutParams(params );

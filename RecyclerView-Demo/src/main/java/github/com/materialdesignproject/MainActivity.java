@@ -25,6 +25,7 @@ import java.util.List;
 import github.com.materialdesignproject.middle.MiddleFragment;
 import github.com.materialdesignproject.primary.PrimaryFragment;
 import github.com.materialdesignproject.senior.SeniorFragment;
+import github.com.materialdesignproject.twitter.TwitterFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(PrimaryFragment.newInstance(),"初级");
         adapter.addFragment(MiddleFragment.newInstance(),"中级");
         adapter.addFragment(SeniorFragment.newInstance(),"高级");
-
+        adapter.addFragment(TwitterFragment.newInstance(),"刷新");
         viewPager.setAdapter(adapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);

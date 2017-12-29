@@ -8,9 +8,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Animation-Demo" />
+            <option value="$PROJECT_DIR$/CoordinatorLayout-Demo" />
+            <option value="$PROJECT_DIR$/NestedRefreshLoadMoreLibrary" />
             <option value="$PROJECT_DIR$/RecyclerView-Demo" />
             <option value="$PROJECT_DIR$/SlideSlip-demo" />
+            <option value="$PROJECT_DIR$/TouchEvent-Demo" />
             <option value="$PROJECT_DIR$/Translucent-Demo" />
+            <option value="$PROJECT_DIR$/View-Demo" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

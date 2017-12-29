@@ -16,7 +16,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-        TranslucentCompat.initFrontSetContentView(this);
+        TranslucentCompat.initStatusBar(this);
+        TranslucentCompat.initNavigationBar(this);
         setContentView(R.layout.activity_main);
 
 

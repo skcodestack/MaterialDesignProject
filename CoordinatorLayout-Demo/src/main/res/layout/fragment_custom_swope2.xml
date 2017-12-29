@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<github.com.materialdesignproject.view.NestedViewGroup3 xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lay_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:header="@layout/layout_twitter_header"
+    app:footer="@layout/layout_classic_footer"
+    app:mode="follow"
+    >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="5dp"
+        android:scrollbars="vertical" />
+
+</github.com.materialdesignproject.view.NestedViewGroup3>

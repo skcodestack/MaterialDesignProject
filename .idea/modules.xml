@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Animation-Demo/Animation-Demo.iml" filepath="$PROJECT_DIR$/Animation-Demo/Animation-Demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CoordinatorLayout-Demo/CoordinatorLayout-Demo.iml" filepath="$PROJECT_DIR$/CoordinatorLayout-Demo/CoordinatorLayout-Demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/MaterialDesignProject.iml" filepath="$PROJECT_DIR$/MaterialDesignProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NestedRefreshLoadMoreLibrary/NestedRefreshLoadMoreLibrary.iml" filepath="$PROJECT_DIR$/NestedRefreshLoadMoreLibrary/NestedRefreshLoadMoreLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/RecyclerView-Demo/RecyclerView-Demo.iml" filepath="$PROJECT_DIR$/RecyclerView-Demo/RecyclerView-Demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/SlideSlip-demo/SlideSlip-demo.iml" filepath="$PROJECT_DIR$/SlideSlip-demo/SlideSlip-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TouchEvent-Demo/TouchEvent-Demo.iml" filepath="$PROJECT_DIR$/TouchEvent-Demo/TouchEvent-Demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/Translucent-Demo/Translucent-Demo.iml" filepath="$PROJECT_DIR$/Translucent-Demo/Translucent-Demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/View-Demo/View-Demo.iml" filepath="$PROJECT_DIR$/View-Demo/View-Demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

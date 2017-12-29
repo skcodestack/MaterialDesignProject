@@ -1,1 +1,1 @@
-include ':app', ':RecyclerView-Demo', ':Translucent-Demo', ':SlideSlip-demo'
+include ':app', ':RecyclerView-Demo', ':Translucent-Demo', ':SlideSlip-demo', ':CoordinatorLayout-Demo', ':NestedRefreshLoadMoreLibrary', ':Animation-Demo', ':TouchEvent-Demo', ':View-Demo'

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_color_filter"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="github.skcodestack.materialdesignproject.paint.filter.ColorFilterActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <github.skcodestack.materialdesignproject.paint.filter.ColorFilterView
+            android:id="@+id/target"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            />
+        <Button
+            android:onClick="btn_non"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="原始效果"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="下面是通过矩阵来实现的"
+            android:textColor="@color/colorAccent"
+            android:gravity="center" />
+        <Button
+            android:onClick="btn_fx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="反相效果"/>
+        <Button
+            android:onClick="btn_coloradvance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="颜色增强"/>
+        <Button
+            android:onClick="btn_whiteblack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="黑白图片"/>
+        <Button
+            android:onClick="btn_exchangecolor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="发色效果"/>
+        <Button
+            android:onClick="btn_retro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="复古风格"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="下面是通过ColorMatrix自带方法来实现的"
+            android:textColor="@color/colorAccent"
+            android:gravity="center" />
+        <Button
+            android:onClick="btn_scale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="亮度调节"/>
+        <Button
+            android:onClick="btn_saturation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="饱和度调节"/>
+        <Button
+            android:onClick="btn_rotate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="色调调节"/>
+        <Button
+            android:onClick="btn_lightingcolorfilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LightingColorFilter"/>
+
+        <Button
+            android:onClick="btn_porterduffcolorfilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PorterDuffColorFilter"/>
+    </LinearLayout>
+
+
+</ScrollView>

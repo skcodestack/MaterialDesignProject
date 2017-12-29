@@ -3,9 +3,13 @@ package github.skcodestack.recyclerview.refresh.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
+import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.view.MotionEventCompat;
+import android.support.v4.view.NestedScrollingChildHelper;
+import android.support.v4.view.NestedScrollingParentHelper;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.AbsListView;
 import android.widget.ListView;
 import android.widget.OverScroller;
 
@@ -128,6 +133,8 @@ public class RefreshLoadMoreWrapper extends ViewGroup {
             footerResoureId = ta.getResourceId(R.styleable.RefreshLoadMoreWrapper_footer, 0);
         }
         ta.recycle();
+
+//        initNestedScrollingHelper();
     }
 
     @Override
@@ -240,13 +247,13 @@ public class RefreshLoadMoreWrapper extends ViewGroup {
                 //如果列表内容不满一屏（既已经到最顶部同时有在最底部），这时对appbar进行特殊处理（展开状态向上滚动、折叠状态向下滚动不进行处理）
                 //TODO:列表不满一屏的时候存在拖拽粘滞的情况，有待优化，主要问题是如何将springView已经得到的事件传递给Appbar？
                 Log.e("refresh","refresh=======>1111111");
-                if (isTop && isBottom) {
-                    if (appbarState == AppBarStateChangeListener.State.EXPANDED && dy < 0) {
-                        break;
-                    } else if (appbarState == AppBarStateChangeListener.State.COLLAPSED && dy > 0) {
-                        break;
-                    }
-                }
+//                if (isTop && isBottom) {
+//                    if (appbarState == AppBarStateChangeListener.State.EXPANDED && dy < 0) {
+//                        break;
+//                    } else if (appbarState == AppBarStateChangeListener.State.COLLAPSED && dy > 0) {
+//                        break;
+//                    }
+//                }
 //                //appBarLayout处于展开状态 || appBarLayout处于折叠状态并且手势上向上拉，则SpirngView处理滑动事件，否则不处理
 //                if (appbarState == AppBarStateChangeListener.State.EXPANDED || appbarState == AppBarStateChangeListener.State.COLLAPSED && dy < 0) {
 //                } else {
@@ -1131,4 +1138,233 @@ public class RefreshLoadMoreWrapper extends ViewGroup {
          */
         void onFinishAnim();
     }
+
+/*************************************************************************************************************/
+
+
+//    private boolean mNestedScrollInProgress;
+//
+//    private float mTotalUnconsumed;
+//    private  NestedScrollingParentHelper mNestedScrollingParentHelper;
+//    private  NestedScrollingChildHelper mNestedScrollingChildHelper;
+//    private final int[] mParentScrollConsumed = new int[2];
+//    private final int[] mParentOffsetInWindow = new int[2];
+//
+//
+//    private void initNestedScrollingHelper(){
+//
+//        mNestedScrollingParentHelper = new NestedScrollingParentHelper(this);
+//
+//        mNestedScrollingChildHelper = new NestedScrollingChildHelper(this);
+//        setNestedScrollingEnabled(true);
+//    }
+//
+//
+//    // NestedScrollingParent
+//
+//    @Override
+//    public boolean onStartNestedScroll(View child, View target, int nestedScrollAxes) {
+//        return isEnabled()  && !mRefreshing
+//                && (nestedScrollAxes & ViewCompat.SCROLL_AXIS_VERTICAL) != 0;
+//    }
+//
+//    @Override
+//    public void onNestedScrollAccepted(View child, View target, int axes) {
+//        // Reset the counter of how much leftover scroll needs to be consumed.
+//        mNestedScrollingParentHelper.onNestedScrollAccepted(child, target, axes);
+//        // Dispatch up to the nested parent
+//        startNestedScroll(axes & ViewCompat.SCROLL_AXIS_VERTICAL);
+//        mTotalUnconsumed = 0;
+//        mNestedScrollInProgress = true;
+//    }
+//
+//    @Override
+//    public void onNestedPreScroll(View target, int dx, int dy, int[] consumed) {
+//        // If we are in the middle of consuming, a scroll, then we want to move the spinner back up
+//        // before allowing the list to scroll
+//        if (dy > 0 && mTotalUnconsumed > 0) {
+//            if (dy > mTotalUnconsumed) {
+//                consumed[1] = dy - (int) mTotalUnconsumed;
+//                mTotalUnconsumed = 0;
+//            } else {
+//                mTotalUnconsumed -= dy;
+//                consumed[1] = dy;
+//            }
+//            moveSpinner(mTotalUnconsumed);
+//        }
+//
+//        // If a client layout is using a custom start position for the circle
+//        // view, they mean to hide it again before scrolling the child view
+//        // If we get back to mTotalUnconsumed == 0 and there is more to go, hide
+//        // the circle so it isn't exposed if its blocking content is moved
+//        if (mUsingCustomStart && dy > 0 && mTotalUnconsumed == 0
+//                && Math.abs(dy - consumed[1]) > 0) {
+////            mCircleView.setVisibility(View.GONE);
+//        }
+//
+//        // Now let our nested parent consume the leftovers
+//        final int[] parentConsumed = mParentScrollConsumed;
+//        if (dispatchNestedPreScroll(dx - consumed[0], dy - consumed[1], parentConsumed, null)) {
+//            consumed[0] += parentConsumed[0];
+//            consumed[1] += parentConsumed[1];
+//        }
+//    }
+//
+//    @Override
+//    public int getNestedScrollAxes() {
+//        return mNestedScrollingParentHelper.getNestedScrollAxes();
+//    }
+//
+//    @Override
+//    public void onStopNestedScroll(View target) {
+//        mNestedScrollingParentHelper.onStopNestedScroll(target);
+//        mNestedScrollInProgress = false;
+//        // Finish the spinner for nested scrolling if we ever consumed any
+//        // unconsumed nested scroll
+//        if (mTotalUnconsumed > 0) {
+//            finishSpinner(mTotalUnconsumed);
+//            mTotalUnconsumed = 0;
+//        }
+//        // Dispatch up our nested parent
+//        stopNestedScroll();
+//    }
+//
+//    @Override
+//    public void onNestedScroll(final View target, final int dxConsumed, final int dyConsumed,
+//                               final int dxUnconsumed, final int dyUnconsumed) {
+//        // Dispatch up to the nested parent first
+//        dispatchNestedScroll(dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed,
+//                mParentOffsetInWindow);
+//
+//        // This is a bit of a hack. Nested scrolling works from the bottom up, and as we are
+//        // sometimes between two nested scrolling views, we need a way to be able to know when any
+//        // nested scrolling parent has stopped handling events. We do that by using the
+//        // 'offset in window 'functionality to see if we have been moved from the event.
+//        // This is a decent indication of whether we should take over the event stream or not.
+//        final int dy = dyUnconsumed + mParentOffsetInWindow[1];
+//        if (dy < 0 && !canChildScrollUp()) {
+//            mTotalUnconsumed += Math.abs(dy);
+//            moveSpinner(mTotalUnconsumed);
+//        }
+//    }
+//
+//
+//    // NestedScrollingChild
+//
+//    @Override
+//    public void setNestedScrollingEnabled(boolean enabled) {
+//        mNestedScrollingChildHelper.setNestedScrollingEnabled(enabled);
+//    }
+//
+//    @Override
+//    public boolean isNestedScrollingEnabled() {
+//        return mNestedScrollingChildHelper.isNestedScrollingEnabled();
+//    }
+//
+//    @Override
+//    public boolean startNestedScroll(int axes) {
+//        return mNestedScrollingChildHelper.startNestedScroll(axes);
+//    }
+//
+//    @Override
+//    public void stopNestedScroll() {
+//        mNestedScrollingChildHelper.stopNestedScroll();
+//    }
+//
+//    @Override
+//    public boolean hasNestedScrollingParent() {
+//        return mNestedScrollingChildHelper.hasNestedScrollingParent();
+//    }
+//
+//    @Override
+//    public boolean dispatchNestedScroll(int dxConsumed, int dyConsumed, int dxUnconsumed,
+//                                        int dyUnconsumed, int[] offsetInWindow) {
+//        return mNestedScrollingChildHelper.dispatchNestedScroll(dxConsumed, dyConsumed,
+//                dxUnconsumed, dyUnconsumed, offsetInWindow);
+//    }
+//
+//    @Override
+//    public boolean dispatchNestedPreScroll(int dx, int dy, int[] consumed, int[] offsetInWindow) {
+//        return mNestedScrollingChildHelper.dispatchNestedPreScroll(
+//                dx, dy, consumed, offsetInWindow);
+//    }
+//
+//    @Override
+//    public boolean onNestedPreFling(View target, float velocityX,
+//                                    float velocityY) {
+//        return dispatchNestedPreFling(velocityX, velocityY);
+//    }
+//
+//    @Override
+//    public boolean onNestedFling(View target, float velocityX, float velocityY,
+//                                 boolean consumed) {
+//        return dispatchNestedFling(velocityX, velocityY, consumed);
+//    }
+//
+//    @Override
+//    public boolean dispatchNestedFling(float velocityX, float velocityY, boolean consumed) {
+//        return mNestedScrollingChildHelper.dispatchNestedFling(velocityX, velocityY, consumed);
+//    }
+//
+//    @Override
+//    public boolean dispatchNestedPreFling(float velocityX, float velocityY) {
+//        return mNestedScrollingChildHelper.dispatchNestedPreFling(velocityX, velocityY);
+//    }
+//
+//    private boolean isAnimationRunning(Animation animation) {
+//        return animation != null && animation.hasStarted() && !animation.hasEnded();
+//    }
+//    /**
+//     * @return Whether it is possible for the child view of this layout to
+//     *         scroll up. Override this if the child view is a custom view.
+//     */
+//    public boolean canChildScrollUp() {
+//        if (mChildScrollUpCallback != null) {
+//            return mChildScrollUpCallback.canChildScrollUp(this, mTarget);
+//        }
+//        if (android.os.Build.VERSION.SDK_INT < 14) {
+//            if (mTarget instanceof AbsListView) {
+//                final AbsListView absListView = (AbsListView) mTarget;
+//                return absListView.getChildCount() > 0
+//                        && (absListView.getFirstVisiblePosition() > 0 || absListView.getChildAt(0)
+//                        .getTop() < absListView.getPaddingTop());
+//            } else {
+//                return ViewCompat.canScrollVertically(mTarget, -1) || mTarget.getScrollY() > 0;
+//            }
+//        } else {
+//            return ViewCompat.canScrollVertically(mTarget, -1);
+//        }
+//    }
+//
+//
+//
+//    private OnChildScrollUpCallback mChildScrollUpCallback;
+//    /**
+//     * Set a callback to override {@link SwipeRefreshLayout#canChildScrollUp()} method. Non-null
+//     * callback will return the value provided by the callback and ignore all internal logic.
+//     * @param callback Callback that should be called when canChildScrollUp() is called.
+//     */
+//    public void setOnChildScrollUpCallback(@Nullable OnChildScrollUpCallback callback) {
+//        mChildScrollUpCallback = callback;
+//    }
+//
+//    /**
+//     * Classes that wish to override {@link SwipeRefreshLayout#canChildScrollUp()} method
+//     * behavior should implement this interface.
+//     */
+//    public interface OnChildScrollUpCallback {
+//        /**
+//         * Callback that will be called when {@link SwipeRefreshLayout#canChildScrollUp()} method
+//         * is called to allow the implementer to override its behavior.
+//         *
+//         * @param parent SwipeRefreshLayout that this callback is overriding.
+//         * @param child The child view of SwipeRefreshLayout.
+//         *
+//         * @return Whether it is possible for the child view of parent layout to scroll up.
+//         */
+//        boolean canChildScrollUp(NestedViewGroup parent, @Nullable View child);
+//    }
+//
+
+
 }

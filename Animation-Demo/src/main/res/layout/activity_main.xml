@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/activity_main"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="github.skcodestack.materialdesignproject.MainActivity">
+
+    <Button
+        android:onClick="btn_property_animation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="属性动画"/>
+    <Button
+        android:onClick="btn_tween_animation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="补间动画(View 动画)"/>
+    <Button
+        android:onClick="btn_frame_animation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="帧动画(Drawable 动画)"/>
+    <Button
+        android:onClick="btn_material_design_animation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MaterialDesign动画"/>
+
+    <Button
+        android:onClick="btn_transfer_animation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MaterialDesign转场动画"/>
+
+    <Button
+        android:onClick="btn_svg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SVG"/>
+
+    <Button
+        android:onClick="btn_splash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义splash动画"/>
+</LinearLayout>

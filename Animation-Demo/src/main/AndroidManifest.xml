@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="github.skcodestack.materialdesignproject">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".PropertyAnimationActivity" />
+        <activity android:name=".MaterialDesignAnimationActivity" />
+        <activity android:name=".MaterialDesignTransferActivity" />
+        <activity android:name=".SVGActivity" />
+        <activity android:name=".FrameOrDrawableAnimationActivity" />
+        <activity android:name=".ViewOrTweenAnimationActivity" />
+        <activity android:name=".transfer.TransferDetailActivity" />
+        <activity android:name=".transfer.CommonTransferActivity" />
+        <activity android:name=".transfer.RecyclerViewTransferActivity" />
+        <activity android:name=".transfer.RecyclerTransferDetailActivity" />
+        <activity android:name=".parallaxsplash.SplashActivity" android:theme="@style/NoActionBarTheme"></activity>
+    </application>
+
+</manifest>
